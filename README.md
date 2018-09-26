@@ -12,13 +12,13 @@ The default MySQL Fulltext search is not performing very well on more serious sh
   * Optional: Show products with images as suggestions
   * Autocorrect typos in search terms
   * "Did you mean..." suggestions
-  * Solr 5.3 support
+  * Solr 5.5 support
   * Solr HTTP authentication support
 
 ## Requirements
 
-  * Magento Community Edition 1.6 - 1.9.2.3
-  * a working **Solr 5.3 server**
+  * Magento Community Edition 1.6 - 1.9.10
+  * a working **Solr 5.5 server**
 
 ## Installation & Usage
 
