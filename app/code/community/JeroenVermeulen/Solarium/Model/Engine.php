@@ -107,10 +107,6 @@ class JeroenVermeulen_Solarium_Model_Engine
     function __construct(
         $overrideConfig = array()
     ) {
-        // Make sure the autoloader is registered, because in Magento < 1.8 some events are missing.
-        /** @var JeroenVermeulen_Solarium_Helper_Autoloader $autoLoader */
-        $autoLoader = Mage::helper( 'jeroenvermeulen_solarium/autoloader' );
-        $autoLoader->register();
         if (!empty( $overrideConfig )) {
             $this->_overrideConfig = $overrideConfig;
         }
@@ -279,8 +275,8 @@ class JeroenVermeulen_Solarium_Model_Engine
                  * @see https://github.com/basdenooijer/solarium/issues/254
                  */
                 $query = $this->_client->createPing();
-                $query->setHandler( 'system' );
-                $data = $this->_client->ping( $query, 'admin' )->getData();
+                $query->setHandler('admin/system');
+                $data = $this->_client->ping( $query )->getData();
                 $this->debugQuery( $query, 'admin' );
                 if (!empty( $data[ 'lucene' ][ 'solr-impl-version' ] )) {
                     $versions[ 'Solr version' ] = $data[ 'lucene' ][ 'solr-impl-version' ];

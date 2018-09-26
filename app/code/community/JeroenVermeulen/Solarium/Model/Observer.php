@@ -28,39 +28,6 @@ class JeroenVermeulen_Solarium_Model_Observer extends Varien_Event_Observer
     protected $_reindexQueue = array();
 
     /**
-     * This is an observer function for the event 'controller_front_init_before'.
-     * It prepends our autoloader, so we can load the extra libraries.
-     *
-     * @param Varien_Event_Observer $observer
-     */
-    public
-    function controllerFrontInitBefore(
-        /** @noinspection PhpUnusedParameterInspection */
-        $observer
-    ) {
-        /** @var JeroenVermeulen_Solarium_Helper_Autoloader $autoLoader */
-        $autoLoader = Mage::helper( 'jeroenvermeulen_solarium/autoloader' );
-        $autoLoader->register();
-    }
-
-    /**
-     * This is an observer function for the event 'shell_reindex_init_process'.
-     * It prepends our autoloader, so we can load the extra libraries.
-     * When the shell script indexer.php is used, the "controller_front_init_before" event is not dispatched.
-     *
-     * @param Varien_Event_Observer $observer
-     */
-    public
-    function shellReindexInitProcess(
-        /** @noinspection PhpUnusedParameterInspection */
-        $observer
-    ) {
-        /** @var JeroenVermeulen_Solarium_Helper_Autoloader $autoLoader */
-        $autoLoader = Mage::helper( 'jeroenvermeulen_solarium/autoloader' );
-        $autoLoader->register();
-    }
-
-    /**
      * This is an observer function for the event 'after_reindex_process_catalogsearch_fulltext'.
      * It starts a full Solr reindex.
      *
