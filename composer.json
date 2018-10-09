@@ -6,6 +6,7 @@
     "license": "OSL-3.0",
     "require": {
         "magento-hackathon/magento-composer-installer": "*",
+        "symfony/event-dispatcher": "^2.8",
         "solarium/solarium": "^4.0"
     },
     "authors": [
